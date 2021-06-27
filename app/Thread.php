@@ -9,7 +9,7 @@ class Thread extends Model
     protected $table = 'thread';
 
     protected $fillable=[
-        'id', 'title', 'description'
+        'id', 'title', 'description', 'close', 'user_id', 'tag_id', 'reply_id'
     ];
 
     public function task(){

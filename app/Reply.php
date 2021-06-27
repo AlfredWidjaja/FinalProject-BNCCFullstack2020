@@ -9,7 +9,7 @@ class Reply extends Model
     protected $table = 'reply';
 
     protected $fillable=[
-        'id', 'title', 'description'
+        'id', 'title', 'description', 'user_id', 'thread_id', 'reply_id'
     ];
 
     public function task(){

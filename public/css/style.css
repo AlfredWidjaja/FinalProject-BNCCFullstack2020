@@ -1,0 +1,94 @@
+.bg1{
+    background-color: #F1EDE0;
+}
+
+.bg2{
+    color: #F1EDE0;
+    background-color: #7D5A50;
+}
+
+.bg3{
+    background-color: #e5b299;
+}
+
+.bg4{
+    background-color: #b4846c;
+}
+
+.bg5{
+    background-color: #F2E7C1;
+}
+
+.tx1{
+    color: #F1EDE0;
+}
+
+.tx2{
+    color: #b4846c;
+}
+
+.tx3{
+    color: #7D5A50;
+}
+
+.tx4{
+    color: #F2E7C1;
+}
+
+.change:hover{
+    color: #F2E7C1;
+}
+
+.change1:hover{
+    color: #7D5A50;
+}
+.sans-serif{
+    font-family: Hammersmith One;
+}
+
+.sans{
+    font-family: Source Serif Pro;
+}
+
+.log:hover{
+    color: #F1EDE0;
+}
+
+.navlink{
+    color: #F1EDE0;
+    border-radius: 30%;
+}
+
+.navlink:hover{
+    color: #b4846c;
+    background-color: #F1EDE0;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.show{
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.navbut:hover{
+    color: #F1EDE0;
+    background-color: #e5b299;
+}
+
+.navbut1:hover{
+    color: black;
+    background-color: #e5b299;
+}
+
+.logres{
+    transform: scaleX(-1);
+}
+
+.tab{
+    width: 130px;
+    height: 50px;
+}
