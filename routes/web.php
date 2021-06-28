@@ -16,18 +16,25 @@
 
     //Route for create, update, show, delete thread
     Route::get('/', 'HomeController@index')->name('home');
+
     Route::get('/home', 'ThreadController@index');
 
     Route::get('/threadList', 'ThreadController@index');
+
     Route::get('/threadList/create', 'ThreadController@create')
         ->middleware('auth');
+
     Route::post('/threadList', 'ThreadController@store')
         ->middleware('auth');
+
     Route::get('/threadList/{thread_id}', 'ThreadController@show');
+
     Route::get('/threadList/{thread_id}/edit', 'ThreadController@edit')
         ->middleware('auth');
+
     Route::put('/threadList/{thread_id}', 'ThreadController@update')
         ->middleware('auth');
+
     Route::delete('/threadList/{thread_id}', 'ThreadController@destroy')
         ->middleware('auth');
 
@@ -39,7 +46,6 @@
     Route::post('/threadList/{thread_id}', 'ThreadController@storerep')
         ->middleware('auth');
 
-    Route::get('/threadList/{thread_id}/show/{reply_id}', 'ThreadController@showrep');
     Route::get('/threadList/{reply_id}/editable', 'ThreadController@editrep')
         ->middleware('auth');
 
@@ -62,7 +68,7 @@
         ->middleware('auth');
 
 
-    //Route for reply reply
+    //Route for reply reply (create and store)
     Route::get('/threadList/{reply_id}/createReply', 'ThreadController@creatererep')
         ->middleware('auth');
 

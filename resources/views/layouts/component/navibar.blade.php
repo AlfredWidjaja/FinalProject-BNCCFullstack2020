@@ -1,4 +1,4 @@
-<!-- Navbar -->
+<!-- Header navbar -->
 <nav class="navbar navbar-expand bg4 shadow-sm sans-serif">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">

@@ -47,6 +47,8 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+    //Input user register data
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -64,6 +66,8 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+
+    //Create register table data
     protected function create(array $data)
     {
         return User::create([

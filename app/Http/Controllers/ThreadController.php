@@ -16,6 +16,8 @@
          *
          * @return \Illuminate\Http\Response
          */
+
+        //Show all thread available
         public function index()
         {
             $threads = Thread::all();
@@ -27,28 +29,35 @@
          *
          * @return \Illuminate\Http\Response
          */
+
+        //create Thread
         public function create()
         {
             return view ('/newThread');
         }
 
+        //Create reply
         public function createrep($id)
         {
             $threads = Thread::where('id', $id)->first();
             return view('/newReply', compact('threads'));
         }
 
+        //Create reply to reply other
         public function creatererep($id)
         {
             $reply = Reply::where('id', $id)->first();
             return view('/newReplayReplay', compact('reply'));
         }
+
         /**
          * Store a newly created resource in storage.
          *
          * @param  \Illuminate\Http\Request  $request
          * @return \Illuminate\Http\Response
          */
+
+        //Store created thread
         public function store(Request $request)
         {
             Thread::create([
@@ -61,7 +70,7 @@
             return redirect(url('/threadList'));
         }
 
-        //Store in reply
+        //Store created reply
         public function storerep(Request $request, $id){
 
             $threads = Thread::where('id', $id)->first();
@@ -75,6 +84,7 @@
             return redirect(url("/threadList/$threads->id"));
         }
 
+        //Store created reply to reply
         public function storererep(Request $request, $id){
             $reply = Reply::where('id', $id)->first();
             Reply::create([
@@ -94,20 +104,13 @@
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
+
+        //to Show reply detail
         public function show($id)
         {
-            /* Task 15 Laravel CRUD
-            $pertanyaan = DB::table('pertanyaan')->where('id', $id)->first(); */
             $threads = Thread::where('id', $id)->first();
             $reply = Reply::all();
             return view('/showThread', compact('threads', 'reply'));
-        }
-
-        public function showrep($id)
-        {
-            $threads = Thread::where('id', $id)->first();
-            $reply = Reply::where('id', $id)->get();
-            return view('/showReply', compact('threads','reply'));
         }
 
         /**
@@ -116,15 +119,16 @@
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
+
+        //To open edit page for thread
         public function edit($id)
         {
-            /* Task 15 Laravel CRUD
-            $pertanyaan = DB::table('pertanyaan')->where('id', $id)->first(); */
             $threads = Thread::where('id', $id)->first();
             $threads->close="";
             return view('/updateThread', compact('threads'));
         }
 
+        //To open edit page for reply
         public function editrep($id){
             $reply = Reply::where('id', $id)->first();
             return view('/updateReply', compact('reply'));
@@ -137,15 +141,10 @@
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
+
+        //Store update thread data
         public function update(Request $request, $id)
         {
-            /* Task 15 Laravel CRUD
-            $pertanyaan = DB::table('pertanyaan')->where('id', $id)->update([
-                                'id_pengguna' => 1,
-                                'judul' => $request->judul,
-                                'isi' => $request->isi,
-                                'time' => date('Y-m-d H:i:s')
-                            ]); */
             $threads = Thread::where('id', $id)->first();
             $threads->title = $request->title;
             $threads->description = $request->description;
@@ -154,6 +153,7 @@
             return redirect('/threadList');
         }
 
+        //Store update reply data
         public function updaterep(Request $request, $id)
         {
             $reply = Reply::where('id', $id)->first();
@@ -170,6 +170,8 @@
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
+
+        //Delete thread data
         public function destroy($id)
         {
             DB::table('reply')->where('thread_id', $id)->delete();
@@ -177,6 +179,7 @@
             return redirect('/threadList');
         }
 
+        //Delete reply data
         public function destroyrep($id)
         {
             $reply = Reply::where('id', $id)->first();
@@ -184,7 +187,5 @@
             $threads = Thread::where('id', $reply->thread_id)->first();
             return redirect("/threadList/$threads->id");
         }
-
     }
-
 ?>

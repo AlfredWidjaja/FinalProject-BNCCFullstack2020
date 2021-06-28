@@ -1,5 +1,6 @@
 @extends('layouts.parent')
 @section('content')
+<!-- Update reply detail page -->
 <div class="col-lg-10 col-md-9 col-8">
     <div class="card card-primary">
       <div class="card-header bg4 tx1">
@@ -34,6 +35,4 @@
       </form>
     </div>
 </div>
-
-
 @endsection

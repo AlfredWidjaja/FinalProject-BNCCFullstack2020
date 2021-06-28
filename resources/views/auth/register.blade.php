@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- Register page -->
 <div class="container sans my-5">
     <div class="row justify-content-center">
         <div class="col-md-8">

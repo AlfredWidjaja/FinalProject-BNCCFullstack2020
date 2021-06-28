@@ -1,6 +1,7 @@
 @extends('layouts.parent')
 
 @section('content')
+<!-- Show thread list page -->
 <div class="col-lg-10 col-md-9 col-8">
 
     <div class="card-header bg4 tx1 border-bottom-0">
@@ -19,6 +20,7 @@
         </div>
       @endif
 
+        <!-- Show thread list available -->
         @forelse ($threads as $key => $t)
           <div class="card-body bg-light sans border tx3">
               <div class="row">
@@ -36,6 +38,8 @@
 
                       <div class="row ml-2">
                            <a href="{{ url("/threadList/$t->id") }}" class="btn btn-sm bg4 tx1 change">Show</a>&emsp;
+
+                           <!-- To determine wether user has authorization to update, delete thread -->
                            @if(auth::user()!=false)
                              @if (auth::user()->id == $t->user_id)
                                  <a href="{{ url("/threadList/$t->id/edit") }}" class="btn btn-sm bg4 tx1 change">Update</a>&emsp;
