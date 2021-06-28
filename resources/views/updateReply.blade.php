@@ -6,7 +6,7 @@
         <h3 class="card-title my-auto">Update Reply</h3>
       </div>
 
-      <form role="form" method="POST" action="{{url("/threadList/edited/$reply->thread_id")}}">
+      <form role="form" method="POST" action="{{url("/threadList/edited/$reply->id")}}">
         @csrf
         @method('PUT')
         <div class="card-body sans tx3">

@@ -34,7 +34,6 @@
                   <div class="alert alert-success">
                     {{session('success')}}
                   </div>
-
                 @endif
                <!-- Reply list -->
                  @forelse ($reply as $key => $t)

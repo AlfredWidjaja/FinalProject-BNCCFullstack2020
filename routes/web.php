@@ -16,7 +16,7 @@
 
     //Route for create, update, show, delete thread
     Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/home', 'HomeController@index');
+    Route::get('/home', 'ThreadController@index');
 
     Route::get('/threadList', 'ThreadController@index');
     Route::get('/threadList/create', 'ThreadController@create')

@@ -72,7 +72,7 @@
                 'description' => $request->description,
                 'time' => date('Y-m-d H:i:s')
             ]);
-            return redirect(url('/threadList'));
+            return redirect(url("/threadList/$threads->id"));
         }
 
         public function storererep(Request $request, $id){
@@ -85,7 +85,8 @@
                 'description' => $request->description,
                 'time' => date('Y-m-d H:i:s')
             ]);
-            return redirect(url('/threadList'));
+            $threads = Thread::where('id', $reply->thread_id)->first();
+            return redirect(url("threadList/$threads->id"));
         }
         /**
          * Display the specified resource.
@@ -155,11 +156,12 @@
 
         public function updaterep(Request $request, $id)
         {
-            $reply = Reply::where('thread_id', $id)->first();
+            $reply = Reply::where('id', $id)->first();
             $reply->title = $request->title;
             $reply->description = $request->description;
             $reply->save();
-            return redirect('/threadList');
+            $threads = Thread::where('id', $reply->thread_id)->first();
+            return redirect("/threadList/$threads->id");
         }
 
         /**
@@ -177,8 +179,10 @@
 
         public function destroyrep($id)
         {
+            $reply = Reply::where('id', $id)->first();
             Reply::find($id)->delete();
-            return redirect('/threadList');
+            $threads = Thread::where('id', $reply->thread_id)->first();
+            return redirect("/threadList/$threads->id");
         }
 
     }
